@@ -8,14 +8,16 @@
 
 #include "Graph.hpp"
 
-Graph::Graph(int n,int* first,int* second){
+Graph::Graph(int n,int m,int* first,int* second){
     rozmiar = n;
+    macierz = new int * [rozmiar];
+    kolory = new int[rozmiar];
     for(int i=0;i<rozmiar;i++)
         macierz[i] = new int [rozmiar];
     for(int i=0;i<rozmiar;i++)
         for(int j=0;j<rozmiar;j++)
             macierz[i][j] = 0;
-    for(int i=0;i<rozmiar;i++){
+    for(int i=0;i<m;i++){
         macierz[first[i]][second[i]] = 1;
         macierz[second[i]][first[i]] = 1;
     }
@@ -28,5 +30,35 @@ Graph::~Graph(){
 }
 
 void Graph::zachlanny(){
-    
+    int k,j;
+    for(int i=0;i<rozmiar;i++){
+        k = 0;
+        j = 0;
+        while(j < i){
+            if(macierz[i][j])
+                if(kolory[j] == k){
+                    k++;
+                    j = 0;
+                    continue;
+                }
+            j++;
+        }
+        kolory[i] = k;
+    }
+}
+
+void Graph::printMacierz(){
+    std::cout << "Macierz: \n";
+    for(int i=0;i<rozmiar;i++){
+        for(int j=0;j<rozmiar;j++)
+            std::cout << macierz[i][j] << " ";
+        std::cout << "\n";
+    }
+}
+
+void Graph::printKolory(){
+    std::cout << "Kolory:\n";
+    for(int i=0;i<rozmiar;i++)
+        std::cout << kolory[i] << " ";
+    std::cout << "\n";
 }

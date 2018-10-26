@@ -9,15 +9,17 @@
 #pragma once
 
 #include <stdio.h>
+#include <iostream>
 
 class Graph{
 private:
     int rozmiar;
-    int** macierz = new int * [rozmiar];
-
-
+    int** macierz;
+    int* kolory;
 public:
     void zachlanny();
-    Graph(int,int*,int*);
+    void printMacierz();
+    void printKolory();
+    Graph(int,int,int*,int*);   // ilość wierzchołków, ilość połączeń, tablica 1, tablica 2
     ~Graph();
 };
