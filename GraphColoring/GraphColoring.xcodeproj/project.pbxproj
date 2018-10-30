@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E20AC68B217A0525001B9CD5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E20AC68A217A0525001B9CD5 /* main.cpp */; };
 		E20AC693217A059A001B9CD5 /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E20AC691217A059A001B9CD5 /* Graph.cpp */; };
+		E2A10EC82188952500AD2E1A /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2A10EC62188952500AD2E1A /* Generator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		E20AC68A217A0525001B9CD5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E20AC691217A059A001B9CD5 /* Graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Graph.cpp; sourceTree = "<group>"; };
 		E20AC692217A059A001B9CD5 /* Graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Graph.hpp; sourceTree = "<group>"; };
+		E2A10EC62188952500AD2E1A /* Generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Generator.cpp; sourceTree = "<group>"; };
+		E2A10EC72188952500AD2E1A /* Generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Generator.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				E20AC68A217A0525001B9CD5 /* main.cpp */,
 				E20AC691217A059A001B9CD5 /* Graph.cpp */,
 				E20AC692217A059A001B9CD5 /* Graph.hpp */,
+				E2A10EC62188952500AD2E1A /* Generator.cpp */,
+				E2A10EC72188952500AD2E1A /* Generator.hpp */,
 			);
 			path = GraphColoring;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2A10EC82188952500AD2E1A /* Generator.cpp in Sources */,
 				E20AC693217A059A001B9CD5 /* Graph.cpp in Sources */,
 				E20AC68B217A0525001B9CD5 /* main.cpp in Sources */,
 			);
