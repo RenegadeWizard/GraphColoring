@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 
 class Graph{
 private:
@@ -20,6 +21,8 @@ public:
     void zachlanny();
     void printMacierz();
     void printKolory();
+    void printIleKolorow();
     Graph(int,int,int*,int*);   // ilość wierzchołków, ilość połączeń, tablica 1, tablica 2
+    Graph(int,std::vector<int>,std::vector<int>);
     ~Graph();
 };

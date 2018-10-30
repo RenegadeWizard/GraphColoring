@@ -8,13 +8,26 @@
 
 #include <iostream>
 #include "Graph.hpp"
+#include <fstream>
+#include <vector>
 
 int main(int argc, const char * argv[]) {
-    int first[] = {0,0,0,1,2,2,2,3,4};
-    int second[] = {1,3,5,6,3,4,6,4,5};
-    Graph* graf = new Graph(7,9,first,second);
+    int ile,in,out;
+    std::fstream file;
+    file.open("myciel4.txt",std::ios::in);
+    file >> ile;
+    std::vector<int> first;
+    std::vector<int> second;
+    while(!file.eof()){
+        file >> in;
+        file >> out;
+        first.push_back(in);
+        second.push_back(out);
+    }
+    Graph* graf = new Graph(ile,first,second);
     graf->zachlanny();
     graf->printKolory();
+    graf->printIleKolorow();
     delete graf;
     return 0;
 }
