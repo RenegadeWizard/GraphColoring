@@ -8,14 +8,17 @@
 
 #pragma once
 
-#include <stdio.h>
 #include <string>
+#include <algorithm>
+#include <vector>
+#include <iostream>
+#include <time.h>
 
 class Generator{
 private:
     std::string nazwaPliku;
 public:
-    Generator();
+    Generator(int,int,std::ostream&);
     ~Generator();
     void setNazwa() ;
     std::string getNazwa() {return nazwaPliku;};
