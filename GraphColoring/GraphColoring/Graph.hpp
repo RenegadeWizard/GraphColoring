@@ -18,11 +18,17 @@ private:
     int** macierz;
     int* kolory;
 public:
-    void zachlanny();
+    void setRozmiar();
+    void setMacierz();
+    void setKolory();
+    int getRozmiar(){return rozmiar;}
+    int** getMacierz(){return macierz;}
+    int* getKolory(){return kolory;}
+    
     void printMacierz();
     void printKolory();
     void printIleKolorow();
     Graph(int,int,int*,int*);   // ilość wierzchołków, ilość połączeń, tablica 1, tablica 2
-    Graph(int,std::vector<int>,std::vector<int>);
+    Graph(int,std::vector<int>,std::vector<int>);   // ilość wierzchołków, vector 1, vector 2
     ~Graph();
 };

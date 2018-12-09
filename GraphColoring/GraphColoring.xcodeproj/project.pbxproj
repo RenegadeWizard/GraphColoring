@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		E20AC68B217A0525001B9CD5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E20AC68A217A0525001B9CD5 /* main.cpp */; };
 		E20AC693217A059A001B9CD5 /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E20AC691217A059A001B9CD5 /* Graph.cpp */; };
+		E2207F4E21BD66E200E43857 /* Osobnik.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2207F4C21BD66E200E43857 /* Osobnik.cpp */; };
+		E2207F5121BD674B00E43857 /* Populacja.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2207F4F21BD674B00E43857 /* Populacja.cpp */; };
 		E2A10EC82188952500AD2E1A /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2A10EC62188952500AD2E1A /* Generator.cpp */; };
+		E2D20B6321BC4F4300A38FD3 /* Zachlanny.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2D20B6121BC4F4300A38FD3 /* Zachlanny.cpp */; };
+		E2D20B6621BC549B00A38FD3 /* Genetyczny.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2D20B6421BC549B00A38FD3 /* Genetyczny.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +33,16 @@
 		E20AC68A217A0525001B9CD5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E20AC691217A059A001B9CD5 /* Graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Graph.cpp; sourceTree = "<group>"; };
 		E20AC692217A059A001B9CD5 /* Graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Graph.hpp; sourceTree = "<group>"; };
+		E2207F4C21BD66E200E43857 /* Osobnik.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Osobnik.cpp; sourceTree = "<group>"; };
+		E2207F4D21BD66E200E43857 /* Osobnik.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Osobnik.hpp; sourceTree = "<group>"; };
+		E2207F4F21BD674B00E43857 /* Populacja.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Populacja.cpp; sourceTree = "<group>"; };
+		E2207F5021BD674B00E43857 /* Populacja.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Populacja.hpp; sourceTree = "<group>"; };
 		E2A10EC62188952500AD2E1A /* Generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Generator.cpp; sourceTree = "<group>"; };
 		E2A10EC72188952500AD2E1A /* Generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Generator.hpp; sourceTree = "<group>"; };
+		E2D20B6121BC4F4300A38FD3 /* Zachlanny.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Zachlanny.cpp; sourceTree = "<group>"; };
+		E2D20B6221BC4F4300A38FD3 /* Zachlanny.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Zachlanny.hpp; sourceTree = "<group>"; };
+		E2D20B6421BC549B00A38FD3 /* Genetyczny.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Genetyczny.cpp; sourceTree = "<group>"; };
+		E2D20B6521BC549B00A38FD3 /* Genetyczny.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Genetyczny.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,14 @@
 				E20AC692217A059A001B9CD5 /* Graph.hpp */,
 				E2A10EC62188952500AD2E1A /* Generator.cpp */,
 				E2A10EC72188952500AD2E1A /* Generator.hpp */,
+				E2D20B6121BC4F4300A38FD3 /* Zachlanny.cpp */,
+				E2D20B6221BC4F4300A38FD3 /* Zachlanny.hpp */,
+				E2D20B6421BC549B00A38FD3 /* Genetyczny.cpp */,
+				E2D20B6521BC549B00A38FD3 /* Genetyczny.hpp */,
+				E2207F4C21BD66E200E43857 /* Osobnik.cpp */,
+				E2207F4D21BD66E200E43857 /* Osobnik.hpp */,
+				E2207F4F21BD674B00E43857 /* Populacja.cpp */,
+				E2207F5021BD674B00E43857 /* Populacja.hpp */,
 			);
 			path = GraphColoring;
 			sourceTree = "<group>";
@@ -129,7 +149,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2A10EC82188952500AD2E1A /* Generator.cpp in Sources */,
+				E2207F5121BD674B00E43857 /* Populacja.cpp in Sources */,
+				E2D20B6621BC549B00A38FD3 /* Genetyczny.cpp in Sources */,
 				E20AC693217A059A001B9CD5 /* Graph.cpp in Sources */,
+				E2207F4E21BD66E200E43857 /* Osobnik.cpp in Sources */,
+				E2D20B6321BC4F4300A38FD3 /* Zachlanny.cpp in Sources */,
 				E20AC68B217A0525001B9CD5 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

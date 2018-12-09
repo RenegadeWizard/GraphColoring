@@ -93,7 +93,7 @@ Generator::Generator(int il_w, int wypelnienie,std::ostream& out){
         }
     }
     
-    
+    out << il_w << "\n";
     for (int i = 0; i < il_krawedzi; i++)
         out << krawedz[i][0] << " " << krawedz[i][1] << endl;
     

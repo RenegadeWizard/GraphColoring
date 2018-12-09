@@ -45,23 +45,6 @@ Graph::~Graph(){
     delete[] kolory;
 }
 
-void Graph::zachlanny(){
-    int k,j;
-    for(int i=0;i<rozmiar;i++){
-        k = 0;
-        j = 0;
-        while(j < i){
-            if(macierz[i][j])
-                if(kolory[j] == k){
-                    k++;
-                    j = 0;
-                    continue;
-                }
-            j++;
-        }
-        kolory[i] = k;
-    }
-}
 
 void Graph::printMacierz(){
     std::cout << "Macierz: \n";
