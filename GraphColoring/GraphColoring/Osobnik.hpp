@@ -10,16 +10,24 @@
 
 #include <iostream>
 #include <set>
+#include <vector>
+#include <ctime>
+#include <algorithm>
+#include "Graph.hpp"
 
 class Osobnik {
 private:
-    int static wierzcholki;
+    int wierzcholki;
     int kolory;
-    int *tab_kolorow;
+    std::vector<int> tab_kolorow;
 public:
     Osobnik(int);
+    Osobnik(std::vector<int>,int);
+    void napraw(Graph*);
     void policz_kolory();
-    int* getTab(){return tab_kolorow;}
+    std::vector<int> getTab(){return tab_kolorow;}
     int getKolory(){return kolory;}
-    int static getWierzcholki(){return wierzcholki;}
+    int getWierzcholki(){return wierzcholki;}
+    void setWierzcholki(int w) {wierzcholki = w;}
+    void mutacja();
 };

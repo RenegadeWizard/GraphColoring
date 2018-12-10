@@ -9,19 +9,28 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
+#include <ctime>
+#include <algorithm>
 #include "Osobnik.hpp"
+#include "Graph.hpp"
 
 class Populacja {
 private:
-    Osobnik *osobniki; //dynamiczna tablica
-    int macierz_sasiedztwa;
-    Osobnik rodz1, rodz2, dziecko;
+    Graph* graf;
+    Osobnik* rodz1;
+    Osobnik* rodz2;
+    Osobnik* dziecko;
+    int wielkoscPopulacji;
+    std::vector<Osobnik*> osobnikiPopulacji;
+    
 public:
-    Populacja();
+    Populacja(int,Graph*);
     void rodzice1();
     void rodzice2();
     void laczenie();
-//    void popraw_losowo(Osobnik this->dziecko);
-//    void popraw_dokladnie(Osobnik this->dziecko);
     void sortuj();
+    void selekcja();
+    void mutacja();
+    void printPopulacje();
 };

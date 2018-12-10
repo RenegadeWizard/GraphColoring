@@ -15,43 +15,46 @@ Genetyczny::Genetyczny(int wP,int lP,int lOK,int lOM){
     liczbaOperacjiMutacji = lOM;
 }
 
-void Genetyczny::napraw(Graph* graf){
-    int j,k;
-    for(auto populacja : pokolenie){
-        for(int i=0;i<graf->getRozmiar();i++){
-            k = j = 0;
-            while(j<i){
-                if(graf->getMacierz()[i][j])
-                    if(populacja[i] == populacja[j]){
-                        populacja[i] = k++;
-                        j = 0;
-                        continue;
-                    }
-                j++;
-            }
+void Genetyczny::operator() (Graph* graf){
+    pop = new Populacja(wielkoscPopulacji,graf);
+    pop->printPopulacje();
+    for(int i=0;i<liczbaPokolen;i++){
+        for(int j=0;j<liczbaOperacjiKrzyzowania;j++){
+            pop->rodzice1();
+            pop->laczenie();
+            pop->printPopulacje();
         }
+        for(int j=0;j<liczbaOperacjiMutacji;j++){
+            pop->mutacja();
+            pop->printPopulacje();
+        }
+        pop->sortuj();
+        pop->printPopulacje();
+        pop->selekcja();
+        pop->printPopulacje();
     }
+    delete pop;
 }
 
-void Genetyczny::tworzPokolenie(){
-    int* populacja = new int[wielkoscPopulacji];
-    srand(time(NULL));
-    for(int j=0;j<liczbaPokolen;j++){
-        for(int i=0;i<wielkoscPopulacji;i++)
-            populacja[i] = rand()%((wielkoscPopulacji+4)/3);
-        pokolenie.push_back(populacja);
-    }
+//void Genetyczny::tworzPokolenie(){
+//    std::vector<Osobnik> populacja;
+//    srand(time(NULL));
+//
 //    for(int i=0;i<wielkoscPopulacji;i++)
-//        std::cout << populacja[i] << " ";
-//    std::cout << "\n";
-}
+//        populacja.push_back(rand()%((wielkoscPopulacji+4)/3));
+//    pokolenie.push_back(populacja);
+//
+////    for(int i=0;i<wielkoscPopulacji;i++)
+////        std::cout << populacja[i] << " ";
+////    std::cout << "\n";
+//}
 
 
-void Genetyczny::printPokolenia(){
-    for(auto populacja : pokolenie){
-        for(int i=0;i<wielkoscPopulacji;i++){
-            std::cout << populacja[i] << " ";
-        }
-        std::cout << "\n";
-    }
-}
+//void Genetyczny::printPokolenia(){
+//    for(auto populacja : pokolenie){
+//        for(int i=0;i<wielkoscPopulacji;i++){
+//            std::cout << populacja[i] << " ";
+//        }
+//        std::cout << "\n";
+//    }
+//}

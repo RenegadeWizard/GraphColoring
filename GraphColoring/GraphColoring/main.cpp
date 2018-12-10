@@ -15,10 +15,10 @@
 #include <vector>
 
 int main(int argc, const char * argv[]) {
-    std::fstream file/*("out4.txt",std::ios::out)*/;
-//    Generator generuj(200,30,file);
-//    file.close();
-    file.open("200_70_52_49.txt",std::ios::in);
+    std::fstream file("out4.txt",std::ios::out);
+    Generator generuj(20,70,file);
+    file.close();
+    file.open("out4.txt",std::ios::in);
     int ile,in,out;
     file >> ile;
     std::vector<int> first;
@@ -30,13 +30,8 @@ int main(int argc, const char * argv[]) {
         second.push_back(out);
     }
     Graph* graf = new Graph(ile,first,second);
-    Genetyczny g(15,2,4,4);
-    g.tworzPokolenie();
-    g.printPokolenia();
-//    Zachlanny z;
-//    z(graf);
-//    graf->printKolory();
-//    graf->printIleKolorow();
+    Genetyczny g(4,2,2,1);
+    g(graf);
     delete graf;
     file.close();
     return 0;

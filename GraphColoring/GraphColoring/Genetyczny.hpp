@@ -12,6 +12,8 @@
 #include <vector>
 #include <ctime>
 #include "Graph.hpp"
+#include "Osobnik.hpp"
+#include "Populacja.hpp"
 
 class Genetyczny{
 private:
@@ -19,7 +21,7 @@ private:
     int liczbaPokolen;
     int liczbaOperacjiKrzyzowania;
     int liczbaOperacjiMutacji;
-    std::vector<int*> pokolenie;
+    Populacja* pop;
 public:
     Genetyczny(int,int,int,int);
     void operator()(Graph*);
