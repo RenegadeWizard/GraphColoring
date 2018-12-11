@@ -10,7 +10,10 @@
 
 #include <iostream>
 #include <vector>
-#include <ctime>
+//#include <ctime>
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
 #include <algorithm>
 #include "Osobnik.hpp"
 #include "Graph.hpp"
@@ -20,9 +23,9 @@ private:
     Graph* graf;
     Osobnik* rodz1;
     Osobnik* rodz2;
-    Osobnik* dziecko;
+//    Osobnik dziecko;
     int wielkoscPopulacji;
-    std::vector<Osobnik*> osobnikiPopulacji;
+    std::vector<Osobnik> osobnikiPopulacji;
     
 public:
     Populacja(int,Graph*);

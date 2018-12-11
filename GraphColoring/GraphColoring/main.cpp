@@ -11,15 +11,20 @@
 #include "Generator.hpp"
 #include "Zachlanny.hpp"
 #include "Genetyczny.hpp"
+#include "Osobnik.hpp"
 #include <fstream>
 #include <vector>
+#include <ctime>
+#include <stdlib.h>
 
 int main(int argc, const char * argv[]) {
-    std::fstream file("out4.txt",std::ios::out);
-    Generator generuj(20,70,file);
-    file.close();
-    file.open("out4.txt",std::ios::in);
+//    Osobnik::licznik = 0;
+    std::fstream file/*("out4.txt",std::ios::out)*/;
+//    Generator generuj(20,70,file);
+//    file.close();
+    file.open("200_30_25_22.txt",std::ios::in);
     int ile,in,out;
+    srand(time(NULL));
     file >> ile;
     std::vector<int> first;
     std::vector<int> second;
@@ -30,8 +35,11 @@ int main(int argc, const char * argv[]) {
         second.push_back(out);
     }
     Graph* graf = new Graph(ile,first,second);
-    Genetyczny g(4,2,2,1);
+    Genetyczny g(10,5,5,3); // Wilekosc populacji, liczba pokolen, liczba operacji krzyzowania, liczba mutacji
+    Zachlanny z;
     g(graf);
+//    z(graf);
+//    graf->printIleKolorow();
     delete graf;
     file.close();
     return 0;

@@ -11,16 +11,22 @@
 #include <iostream>
 #include <set>
 #include <vector>
-#include <ctime>
+//#include <ctime>
+#include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <algorithm>
 #include "Graph.hpp"
+
 
 class Osobnik {
 private:
     int wierzcholki;
     int kolory;
     std::vector<int> tab_kolorow;
+    int numerKolejny;
 public:
+//    int static licznik;
     Osobnik(int);
     Osobnik(std::vector<int>,int);
     void napraw(Graph*);
@@ -30,4 +36,5 @@ public:
     int getWierzcholki(){return wierzcholki;}
     void setWierzcholki(int w) {wierzcholki = w;}
     void mutacja();
+    int getNumerKolejny(){return numerKolejny;}
 };

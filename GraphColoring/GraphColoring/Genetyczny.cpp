@@ -17,22 +17,23 @@ Genetyczny::Genetyczny(int wP,int lP,int lOK,int lOM){
 
 void Genetyczny::operator() (Graph* graf){
     pop = new Populacja(wielkoscPopulacji,graf);
-    pop->printPopulacje();
+//    pop->printPopulacje();
     for(int i=0;i<liczbaPokolen;i++){
         for(int j=0;j<liczbaOperacjiKrzyzowania;j++){
             pop->rodzice1();
             pop->laczenie();
-            pop->printPopulacje();
+//            pop->printPopulacje();
         }
         for(int j=0;j<liczbaOperacjiMutacji;j++){
             pop->mutacja();
-            pop->printPopulacje();
+//            pop->printPopulacje();
         }
         pop->sortuj();
-        pop->printPopulacje();
+//        pop->printPopulacje();
         pop->selekcja();
-        pop->printPopulacje();
+//        pop->printPopulacje();
     }
+    pop->printPopulacje();
     delete pop;
 }
 

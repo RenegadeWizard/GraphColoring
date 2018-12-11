@@ -8,22 +8,28 @@
 
 #include "Osobnik.hpp"
 
+int licznik = 0;
+
 Osobnik::Osobnik(int w){
     wierzcholki = w;
-    srand(time(NULL));
+//    srand(unsigned(time(NULL)*licznik));
     int t;
     for (int i=0; i<wierzcholki; i++){
-        t = rand()%wierzcholki;
+        t = rand()%(wierzcholki/6);
+//        std::cout << t <<" ";
         tab_kolorow.push_back(t);
 //        modulo stopien wierzcholka + 1
     }
+//    std::cout << "\n";
     policz_kolory();
+    numerKolejny = licznik++;
 }
 
 Osobnik::Osobnik(std::vector<int> kolory,int w){
     wierzcholki = w;
     tab_kolorow=kolory;
     policz_kolory();
+    numerKolejny = licznik++;
 }
 
 void Osobnik::policz_kolory(){
@@ -52,7 +58,7 @@ void Osobnik::napraw(Graph* graf){
 }
 
 void Osobnik::mutacja(){
-    srand(time(NULL));
+//    srand(unsigned(time(NULL)));
     int t1,t2;
     t1 = rand()%wierzcholki;
     t2 = rand()%wierzcholki;

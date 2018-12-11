@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Genetyczny.cpp"
-            timestampString = "566165978.689129"
+            timestampString = "566216052.678494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "Genetyczny::operator() (Graph* graf)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Genetyczny.cpp"
-            timestampString = "566165978.689321"
+            timestampString = "566216052.678573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "Genetyczny::operator() (Graph* graf)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Genetyczny.cpp"
-            timestampString = "566165978.689489"
+            timestampString = "566216052.678633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "Genetyczny::operator() (Graph* graf)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Genetyczny.cpp"
-            timestampString = "566165978.689654"
+            timestampString = "566216052.678686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "Genetyczny::operator() (Graph* graf)"
             landmarkType = "7">
          </BreakpointContent>
@@ -73,13 +73,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GraphColoring/Genetyczny.cpp"
-            timestampString = "566165978.6898071"
+            filePath = "GraphColoring/Populacja.cpp"
+            timestampString = "566216052.678741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "Genetyczny::operator() (Graph* graf)"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "Populacja::Populacja(int w,Graph* g)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
