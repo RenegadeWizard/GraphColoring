@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
     std::fstream file/*("out4.txt",std::ios::out)*/;
 //    Generator generuj(20,70,file);
 //    file.close();
-    file.open("200_30_25_22.txt",std::ios::in);
+    file.open("queen6.txt",std::ios::in);
     int ile,in,out;
     srand(time(NULL));
     file >> ile;
@@ -35,8 +35,8 @@ int main(int argc, const char * argv[]) {
         second.push_back(out);
     }
     Graph* graf = new Graph(ile,first,second);
-    Genetyczny g(10,5,5,3); // Wilekosc populacji, liczba pokolen, liczba operacji krzyzowania, liczba mutacji
-    Zachlanny z;
+    Genetyczny g(100,300,50,20); // Wilekosc populacji, liczba pokolen, liczba operacji krzyzowania, liczba mutacji
+//    Zachlanny z;
     g(graf);
 //    z(graf);
 //    graf->printIleKolorow();

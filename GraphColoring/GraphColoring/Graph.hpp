@@ -17,6 +17,7 @@ private:
     int rozmiar;
     int** macierz;
     int* kolory;
+    int maxWierzcholek;
 public:
     void setRozmiar();
     void setMacierz();
@@ -24,6 +25,7 @@ public:
     int getRozmiar(){return rozmiar;}
     int** getMacierz(){return macierz;}
     int* getKolory(){return kolory;}
+    int getMaxWierzcholek() {return maxWierzcholek;}
     
     void printMacierz();
     void printKolory();

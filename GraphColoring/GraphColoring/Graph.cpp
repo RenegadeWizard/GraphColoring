@@ -10,6 +10,11 @@
 
 Graph::Graph(int n,int m,int* first,int* second){
     rozmiar = n;
+    maxWierzcholek = 0;
+    int* maxTemp = new int[rozmiar];
+    for(int i=0;i<rozmiar;i++){
+        maxTemp[i] = 0;
+    }
     macierz = new int * [rozmiar];
     kolory = new int[rozmiar];
     for(int i=0;i<rozmiar;i++)
@@ -18,13 +23,24 @@ Graph::Graph(int n,int m,int* first,int* second){
         for(int j=0;j<rozmiar;j++)
             macierz[i][j] = 0;
     for(int i=0;i<m;i++){
+        maxTemp[first[i]]++;
+        maxTemp[second[i]]++;
         macierz[first[i]][second[i]] = 1;
         macierz[second[i]][first[i]] = 1;
     }
+    for(int i=0;i<rozmiar;i++)
+        if(maxTemp[i] > maxWierzcholek)
+            maxWierzcholek = maxTemp[i];
+    delete[] maxTemp;
 }
 
 Graph::Graph(int n,std::vector<int> first,std::vector<int> second){
     rozmiar = n;
+    maxWierzcholek = 0;
+    int* maxTemp = new int[rozmiar];
+    for(int i=0;i<rozmiar;i++){
+        maxTemp[i] = 0;
+    }
     macierz = new int * [rozmiar];
     kolory = new int [rozmiar];
     for(int i=0;i<rozmiar;i++)
@@ -33,9 +49,15 @@ Graph::Graph(int n,std::vector<int> first,std::vector<int> second){
         for(int j=0;j<rozmiar;j++)
             macierz[i][j] = 0;
     for(int i=0;i<first.size();i++){
+        maxTemp[first[i]]++;
+        maxTemp[second[i]]++;
         macierz[first[i]-1][second[i]-1] = 1;
         macierz[second[i]-1][first[i]-1] = 1;
     }
+    for(int i=0;i<rozmiar;i++)
+        if(maxTemp[i] > maxWierzcholek)
+            maxWierzcholek = maxTemp[i];
+    delete[] maxTemp;
 }
 
 Graph::~Graph(){

@@ -10,12 +10,12 @@
 
 int licznik = 0;
 
-Osobnik::Osobnik(int w){
+Osobnik::Osobnik(int w, int maxWierzcholek){
     wierzcholki = w;
-//    srand(unsigned(time(NULL)*licznik));
     int t;
     for (int i=0; i<wierzcholki; i++){
-        t = rand()%(wierzcholki/6);
+//        t = rand()%(wierzcholki/125);
+        t = rand()%(maxWierzcholek+1);
 //        std::cout << t <<" ";
         tab_kolorow.push_back(t);
 //        modulo stopien wierzcholka + 1
@@ -58,11 +58,64 @@ void Osobnik::napraw(Graph* graf){
 }
 
 void Osobnik::mutacja(){
-//    srand(unsigned(time(NULL)));
     int t1,t2;
     t1 = rand()%wierzcholki;
     t2 = rand()%wierzcholki;
     while(t1==t2)
         t2 = rand()%wierzcholki;
     std::swap(tab_kolorow[t1], tab_kolorow[t2]);
+}
+
+void Osobnik::mutacja1(Graph* graf){
+    std::set<int> uzyteKolory;
+    for(int i=0;i<graf->getRozmiar();i++){
+        std::set<int> sasiednieKolory;
+        for(int j=0;j<i;j++){
+            if(graf->getMacierz()[i][j])
+                sasiednieKolory.insert(tab_kolorow[j]);
+        }
+        std::set<int> mozliweKolory = uzyteKolory;
+        for(auto a : sasiednieKolory){
+            mozliweKolory.erase(a);
+        }
+        if(mozliweKolory.count(tab_kolorow[i])==0 && mozliweKolory.size() != 0){
+            int los = rand() % mozliweKolory.size();
+            auto a = mozliweKolory.begin();
+            while(los-- > 0){
+                a++;
+                tab_kolorow[i] = *(a);
+            }
+//            tab_kolorow[i] = *(mozliweKolory.begin()+los);
+        }
+    }
+}
+
+
+void Osobnik::mutacja2(Graph* graf){
+    std::set<int> uzyteKolory;
+    for(int i=0;i<graf->getRozmiar();i++){
+        uzyteKolory.insert(tab_kolorow[i]);
+    }
+    int los;
+    for(int i=0;i<graf->getRozmiar();i++){
+        for(int j=0;j<i;j++){
+            if(graf->getMacierz()[i][j])
+                if(tab_kolorow[i] == tab_kolorow[j]){
+                    los = rand()%uzyteKolory.size();
+                    auto a = uzyteKolory.begin();
+                    while(los-- > 0){
+                        a++;
+                        tab_kolorow[i] = *(a);
+                    }
+                }
+        }
+    }
+}
+
+void Osobnik::bledneKrawedzie(Graph* graf){
+    int k=0;
+    for(int i=0;i<graf->getRozmiar();i++)
+        for(int j=0;j<i;j++)
+            if(graf->getMacierz()[i][j] && tab_kolorow[i] == tab_kolorow[j])
+                k++;
 }

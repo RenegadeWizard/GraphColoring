@@ -31,9 +31,14 @@ public:
     Populacja(int,Graph*);
     void rodzice1();
     void rodzice2();
-    void laczenie();
+    void rodzice3();
+    void rodzice4();
+    void rodzice5();
+    void laczenie(int);
     void sortuj();
     void selekcja();
     void mutacja();
+    Osobnik* mutacja(Osobnik*);
     void printPopulacje();
+    void printMax();
 };

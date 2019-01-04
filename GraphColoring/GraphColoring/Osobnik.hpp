@@ -26,8 +26,7 @@ private:
     std::vector<int> tab_kolorow;
     int numerKolejny;
 public:
-//    int static licznik;
-    Osobnik(int);
+    Osobnik(int,int);
     Osobnik(std::vector<int>,int);
     void napraw(Graph*);
     void policz_kolory();
@@ -36,5 +35,8 @@ public:
     int getWierzcholki(){return wierzcholki;}
     void setWierzcholki(int w) {wierzcholki = w;}
     void mutacja();
+    void mutacja1(Graph*);
+    void mutacja2(Graph*);
+    void bledneKrawedzie(Graph*);
     int getNumerKolejny(){return numerKolejny;}
 };

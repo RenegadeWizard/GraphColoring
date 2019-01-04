@@ -25,10 +25,4 @@ private:
 public:
     Genetyczny(int,int,int,int);
     void operator()(Graph*);
-    void krzyzuj();
-    void mutuj();
-    void sortuj();
-    void napraw(Graph*);
-    void tworzPokolenie();
-    void printPokolenia();
 };
