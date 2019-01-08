@@ -26,19 +26,27 @@ private:
 //    Osobnik dziecko;
     int wielkoscPopulacji;
     std::vector<Osobnik> osobnikiPopulacji;
+//    bool mutacja;
     
 public:
     Populacja(int,Graph*);
+    void rodzice();
     void rodzice1();
     void rodzice2();
     void rodzice3();
     void rodzice4();
     void rodzice5();
+    void rodzice6();
     void laczenie(int);
     void sortuj();
     void selekcja();
-    void mutacja();
+    int getWielkoscPopulacji() {return wielkoscPopulacji;}
     Osobnik* mutacja(Osobnik*);
     void printPopulacje();
     void printMax();
+    int bestFitness();
+    void naprawPopulacje();
+    void sortujFitness();
+    std::vector<Osobnik> getOsobnikiPopulacji(){return osobnikiPopulacji;}
+    void randomowaMutacja();
 };

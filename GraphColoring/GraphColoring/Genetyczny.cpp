@@ -21,24 +21,18 @@ void Genetyczny::operator() (Graph* graf){
     for(int i=0;i<liczbaPokolen;i++){
         for(int j=0;j<liczbaOperacjiKrzyzowania;j++){
             pop->rodzice1();
-//            pop->rodzice2();
-//            pop->rodzice3();
-//            pop->rodzice4();
-//            pop->rodzice5();
             pop->laczenie(liczbaOperacjiMutacji);
-//            pop->printPopulacje();
         }
-//        for(int j=0;j<liczbaOperacjiMutacji;j++){
-//            pop->mutacja();
-//            pop->printPopulacje();
-//        }
+//        pop->sortujFitness();
+//        pop->randomowaMutacja();
         pop->sortuj();
-//        pop->printPopulacje();
         pop->selekcja();
-//        pop->printPopulacje();
+//        if(!pop->getOsobnikiPopulacji()[0].getFitness())
+//            std::cout << i << ": "<<pop->getOsobnikiPopulacji()[0].getKolory()<<"\n";
+        
+        
         std::cout << i << ": ";
         pop->printMax();
     }
-//    pop->printPopulacje();
     delete pop;
 }

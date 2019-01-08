@@ -10,12 +10,30 @@
 
 int licznik = 0;
 
+Osobnik::Osobnik(Graph* g){
+    graf = g;
+    wierzcholki = graf->getRozmiar();
+    int t;
+    for (int i=0; i<wierzcholki; i++){
+        //        t = rand()%(wierzcholki/125);
+        t = rand()%(graf->getMaxWierzcholek()+1);
+//        t= rand()%(graf->getRozmiar());
+        //        std::cout << t <<" ";
+        tab_kolorow.push_back(t);
+        //        modulo stopien wierzcholka + 1
+    }
+    //    std::cout << "\n";
+    policz_kolory();
+    numerKolejny = licznik++;
+    updateFitness();
+}
+
 Osobnik::Osobnik(int w, int maxWierzcholek){
     wierzcholki = w;
     int t;
     for (int i=0; i<wierzcholki; i++){
 //        t = rand()%(wierzcholki/125);
-        t = rand()%(maxWierzcholek+1);
+        t = rand()%(maxWierzcholek+1)/2;
 //        std::cout << t <<" ";
         tab_kolorow.push_back(t);
 //        modulo stopien wierzcholka + 1
@@ -23,13 +41,27 @@ Osobnik::Osobnik(int w, int maxWierzcholek){
 //    std::cout << "\n";
     policz_kolory();
     numerKolejny = licznik++;
+    updateFitness();
 }
 
-Osobnik::Osobnik(std::vector<int> kolory,int w){
-    wierzcholki = w;
+Osobnik::Osobnik(std::vector<int> kolory,Graph* g){
+    graf = g;
+    wierzcholki = graf->getRozmiar();
     tab_kolorow=kolory;
     policz_kolory();
     numerKolejny = licznik++;
+    updateFitness();
+}
+
+Osobnik::Osobnik(Graph* g,bool boo){
+    graf = g;
+    wierzcholki = graf->getRozmiar();
+    for(int i=0;i<wierzcholki;i++){
+        tab_kolorow.push_back(0);
+    }
+    policz_kolory();
+    numerKolejny = 1;
+    updateFitness();
 }
 
 void Osobnik::policz_kolory(){
@@ -40,7 +72,7 @@ void Osobnik::policz_kolory(){
     kolory = zbior.size();
 }
 
-void Osobnik::napraw(Graph* graf){
+void Osobnik::napraw(){
     int j,k;
     for(int i=0;i<graf->getRozmiar();i++){
         k = j = 0;
@@ -66,8 +98,11 @@ void Osobnik::mutacja(){
     std::swap(tab_kolorow[t1], tab_kolorow[t2]);
 }
 
-void Osobnik::mutacja1(Graph* graf){
+void Osobnik::mutacja1(){
     std::set<int> uzyteKolory;
+    for(int i=0;i<graf->getRozmiar();i++){
+        uzyteKolory.insert(tab_kolorow[i]);
+    }
     for(int i=0;i<graf->getRozmiar();i++){
         std::set<int> sasiednieKolory;
         for(int j=0;j<i;j++){
@@ -91,7 +126,7 @@ void Osobnik::mutacja1(Graph* graf){
 }
 
 
-void Osobnik::mutacja2(Graph* graf){
+void Osobnik::mutacja2(){
     std::set<int> uzyteKolory;
     for(int i=0;i<graf->getRozmiar();i++){
         uzyteKolory.insert(tab_kolorow[i]);
@@ -112,10 +147,31 @@ void Osobnik::mutacja2(Graph* graf){
     }
 }
 
-void Osobnik::bledneKrawedzie(Graph* graf){
+int Osobnik::bledneKrawedzie(){
     int k=0;
     for(int i=0;i<graf->getRozmiar();i++)
         for(int j=0;j<i;j++)
             if(graf->getMacierz()[i][j] && tab_kolorow[i] == tab_kolorow[j])
                 k++;
+    return k;
+}
+
+
+void Osobnik::updateFitness(){
+    fitness = bledneKrawedzie();
+}
+
+void Osobnik::randomowaMutacja(){
+    int i=0;
+    while(i+1 < wierzcholki){
+        std::swap(tab_kolorow[i], tab_kolorow[i+1]);
+        i+=2;
+    }
+}
+
+void Osobnik::randomowaMutacja2(){
+    for(int i=0;i<wierzcholki/2;i++){
+        std::swap(tab_kolorow[i], tab_kolorow[wierzcholki-i-1]);
+    }
+    
 }

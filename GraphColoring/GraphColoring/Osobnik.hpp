@@ -25,18 +25,27 @@ private:
     int kolory;
     std::vector<int> tab_kolorow;
     int numerKolejny;
+    int fitness;
+    Graph* graf;
 public:
+    Osobnik(Graph*);
     Osobnik(int,int);
-    Osobnik(std::vector<int>,int);
-    void napraw(Graph*);
+    Osobnik(std::vector<int>,Graph*);
+    Osobnik(Graph*,bool);
+    
+    void napraw();
     void policz_kolory();
     std::vector<int> getTab(){return tab_kolorow;}
     int getKolory(){return kolory;}
     int getWierzcholki(){return wierzcholki;}
     void setWierzcholki(int w) {wierzcholki = w;}
     void mutacja();
-    void mutacja1(Graph*);
-    void mutacja2(Graph*);
-    void bledneKrawedzie(Graph*);
+    void mutacja1();
+    void mutacja2();
+    int bledneKrawedzie();
     int getNumerKolejny(){return numerKolejny;}
+    void updateFitness();
+    int getFitness() {return fitness;}
+    void randomowaMutacja();
+    void randomowaMutacja2();
 };
