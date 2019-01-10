@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <algorithm>
 #include "Graph.hpp"
+#include "Zachlanny.hpp"
 
 
 class Osobnik {
@@ -28,6 +29,7 @@ private:
     int fitness;
     Graph* graf;
 public:
+    Osobnik(Graph*,int);
     Osobnik(Graph*);
     Osobnik(int,int);
     Osobnik(std::vector<int>,Graph*);
@@ -48,4 +50,5 @@ public:
     int getFitness() {return fitness;}
     void randomowaMutacja();
     void randomowaMutacja2();
+    void randomowaMutacja3();
 };

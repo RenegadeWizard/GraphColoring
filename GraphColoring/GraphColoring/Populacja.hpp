@@ -31,7 +31,8 @@ private:
 public:
     Populacja(int,Graph*);
     void rodzice();
-    void rodzice1();
+    void rodzice1(int);
+    void rodzice1a();
     void rodzice2();
     void rodzice3();
     void rodzice4();
@@ -49,4 +50,7 @@ public:
     void sortujFitness();
     std::vector<Osobnik> getOsobnikiPopulacji(){return osobnikiPopulacji;}
     void randomowaMutacja();
+    int bestKolor();
+    void mutujj();
+    void dodaj();
 };

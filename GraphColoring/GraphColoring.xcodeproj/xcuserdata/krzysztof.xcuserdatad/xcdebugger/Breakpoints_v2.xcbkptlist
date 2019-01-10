@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Osobnik.cpp"
-            timestampString = "568588028.39635"
+            timestampString = "568819732.9493949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Osobnik.cpp"
-            timestampString = "568588028.396446"
+            timestampString = "568819732.949494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
             endingLineNumber = "110"
-            landmarkName = "Osobnik::mutacja1()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Osobnik.cpp"
-            timestampString = "568588028.396522"
+            timestampString = "568819732.949566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "Osobnik::mutacja1()"
+            landmarkName = "Osobnik::mutacja()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Osobnik.cpp"
-            timestampString = "568588028.396593"
+            timestampString = "568819732.9496289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Osobnik.cpp"
-            timestampString = "568588028.39666"
+            timestampString = "568819732.949688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
             endingLineNumber = "107"
-            landmarkName = "Osobnik::mutacja1()"
+            landmarkName = "Osobnik::mutacja()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GraphColoring/Genetyczny.cpp"
-            timestampString = "568588028.396728"
+            timestampString = "568819732.949747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "Genetyczny::operator() (Graph* graf)"
             landmarkType = "7">
          </BreakpointContent>

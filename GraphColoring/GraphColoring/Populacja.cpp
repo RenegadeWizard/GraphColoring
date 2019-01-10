@@ -14,17 +14,26 @@ Populacja::Populacja(int w,Graph* g){
     wielkoscPopulacji = w;
     graf = g;
 //    Osobnik* temp;
-    for(int i=0;i<wielkoscPopulacji;i++){
+    for(int i=0;i<graf->getRozmiar();i++){
         Osobnik* temp;
 //        if(i==0){
 //            temp = new Osobnik(graf,true);
 //            temp->napraw();
 //            osobnikiPopulacji.push_back(*temp);
 //        }else{
-            temp = new Osobnik(graf);
+            temp = new Osobnik(graf,i);
             temp->napraw();
             osobnikiPopulacji.push_back(*temp);
 //        }
+        
+        delete temp;
+    }
+    for(int i=graf->getRozmiar();i<wielkoscPopulacji;i++){
+        Osobnik* temp;
+        temp = new Osobnik(graf);
+        temp->napraw();
+        osobnikiPopulacji.push_back(*temp);
+        
         delete temp;
     }
 }
@@ -48,7 +57,7 @@ void Populacja::rodzice(){
 //    }
 }
 
-void Populacja::rodzice1(){
+void Populacja::rodzice1(int poczatek){
     int punkt1,punkt2;
 //    srand(unsigned(time(NULL))*licznik1++);
     //losuj punkty
@@ -56,13 +65,29 @@ void Populacja::rodzice1(){
     punkt2 = rand()%30;
     
     while(punkt1==punkt2 || punkt1-punkt2 > 20 || punkt2-punkt1 > 20){
+        punkt1 = rand()%30;
+        punkt2 = rand()%30;
+    }
+    
+    rodz1 = &osobnikiPopulacji[poczatek+punkt1];
+    rodz2 = &osobnikiPopulacji[poczatek+punkt2];
+//    std::cout << punkt << "\n";
+}
+void Populacja::rodzice1a(){
+    int punkt1,punkt2;
+    //    srand(unsigned(time(NULL))*licznik1++);
+    //losuj punkty
+    punkt1 = rand()%wielkoscPopulacji;
+    punkt2 = rand()%wielkoscPopulacji;
+    
+    while(punkt1==punkt2){
         punkt1 = rand()%wielkoscPopulacji;
         punkt2 = rand()%wielkoscPopulacji;
     }
     
     rodz1 = &osobnikiPopulacji[punkt1];
     rodz2 = &osobnikiPopulacji[punkt2];
-//    std::cout << punkt << "\n";
+    //    std::cout << punkt << "\n";
 }
 
 void Populacja::rodzice2(){
@@ -222,3 +247,26 @@ void Populacja::randomowaMutacja(){
     osobnikiPopulacji[punkt].napraw();
 }
 
+int Populacja::bestKolor(){
+    return osobnikiPopulacji[0].getKolory();
+}
+
+void Populacja::mutujj(){
+    for(auto a:osobnikiPopulacji){
+//        if(rand()%2)
+//            a.randomowaMutacja();
+//        else
+            a.randomowaMutacja3();
+        a.napraw();
+    }
+    dodaj();
+}
+
+void Populacja::dodaj(){
+    for(int i=0;i<100;i++){
+        Osobnik* temp = new Osobnik(graf);
+        temp->napraw();
+        osobnikiPopulacji.push_back(*temp);
+        delete temp;
+    }
+}

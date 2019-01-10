@@ -12,6 +12,12 @@
 #include "Graph.hpp"
 
 class Zachlanny{
+private:
+    std::vector<int> tab_kolorow;
+    Graph* graf;
 public:
-    void operator()(Graph*);
+    Zachlanny(Graph*);
+    void operator()();
+    void zachlanny(int);
+    std::vector<int> getTabKolorow() {return tab_kolorow;}
 };

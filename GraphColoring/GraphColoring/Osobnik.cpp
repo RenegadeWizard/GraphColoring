@@ -10,6 +10,16 @@
 
 int licznik = 0;
 
+Osobnik::Osobnik(Graph* g,int k){
+    graf = g;
+    wierzcholki = graf->getRozmiar();
+    Zachlanny z(graf);
+    z.zachlanny(k);
+    tab_kolorow = z.getTabKolorow();
+    policz_kolory();
+    updateFitness();
+}
+
 Osobnik::Osobnik(Graph* g){
     graf = g;
     wierzcholki = graf->getRozmiar();
@@ -174,4 +184,13 @@ void Osobnik::randomowaMutacja2(){
         std::swap(tab_kolorow[i], tab_kolorow[wierzcholki-i-1]);
     }
     
+}
+
+void Osobnik::randomowaMutacja3(){
+    int punkt1,punkt2;
+    for(int i=0;i<wierzcholki;i++){
+        punkt1=rand()%wierzcholki;
+        punkt2=rand()%wierzcholki;
+        std::swap(tab_kolorow[punkt1], tab_kolorow[punkt2]);
+    }
 }
