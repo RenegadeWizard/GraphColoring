@@ -11,6 +11,7 @@
 #include <iostream>
 #include <set>
 #include <vector>
+#include <map>
 //#include <ctime>
 #include <time.h>
 #include <stdlib.h>
@@ -35,6 +36,7 @@ public:
     Osobnik(std::vector<int>,Graph*);
     Osobnik(Graph*,bool);
     
+    void normalizujKolory();
     void napraw();
     void policz_kolory();
     std::vector<int> getTab(){return tab_kolorow;}
@@ -51,4 +53,6 @@ public:
     void randomowaMutacja();
     void randomowaMutacja2();
     void randomowaMutacja3();
+    void randomowaMutacja4();
+    void randomowaMutacja5();
 };

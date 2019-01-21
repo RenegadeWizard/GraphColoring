@@ -14,21 +14,21 @@ Populacja::Populacja(int w,Graph* g){
     wielkoscPopulacji = w;
     graf = g;
 //    Osobnik* temp;
-    for(int i=0;i<graf->getRozmiar();i++){
+    for(int i=0;i<1;i++){
         Osobnik* temp;
 //        if(i==0){
 //            temp = new Osobnik(graf,true);
 //            temp->napraw();
 //            osobnikiPopulacji.push_back(*temp);
 //        }else{
-            temp = new Osobnik(graf,i);
+            temp = new Osobnik(graf,rand()%graf->getRozmiar());
             temp->napraw();
             osobnikiPopulacji.push_back(*temp);
 //        }
         
         delete temp;
     }
-    for(int i=graf->getRozmiar();i<wielkoscPopulacji;i++){
+    for(int i=1;i<wielkoscPopulacji;i++){
         Osobnik* temp;
         temp = new Osobnik(graf);
         temp->napraw();
@@ -256,10 +256,14 @@ void Populacja::mutujj(){
 //        if(rand()%2)
 //            a.randomowaMutacja();
 //        else
-            a.randomowaMutacja3();
+//        a.randomowaMutacja();
+//        a.randomowaMutacja2();
+//        a.randomowaMutacja3();
+//            a.randomowaMutacja4();
+        a.randomowaMutacja5();
         a.napraw();
     }
-    dodaj();
+//    dodaj();
 }
 
 void Populacja::dodaj(){

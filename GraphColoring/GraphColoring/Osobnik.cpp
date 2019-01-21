@@ -81,9 +81,47 @@ void Osobnik::policz_kolory(){
     }
     kolory = zbior.size();
 }
+void Osobnik::normalizujKolory(){
+    std::map<int, int> mapka;
+    std::vector<int> uzyteKolory;
+    int tmpKolor=0;
+    for (auto i : tab_kolorow)
+    {
+        if (std::find(uzyteKolory.begin(), uzyteKolory.end(), i) == uzyteKolory.end())
+            uzyteKolory.push_back(i);
+    }
+    sort(uzyteKolory.begin(), uzyteKolory.end(), std::greater<int>());
+    while (!uzyteKolory.empty())
+    {
+        auto h = std::find(uzyteKolory.begin(), uzyteKolory.end(), tmpKolor);
+        if(h != uzyteKolory.end())
+        {
+            mapka[tmpKolor] = tmpKolor;
+            uzyteKolory.erase(h);
+        }
+        else
+        {
+            mapka[uzyteKolory[0]] = tmpKolor;
+            uzyteKolory.erase(uzyteKolory.begin());
+        }
+        tmpKolor++;
+    }
+    
+    for (auto i : tab_kolorow)
+    {
+        i=mapka[i];
+        if (i > 20)
+            std::cout<<"";
+    }
+}
 
 void Osobnik::napraw(){
     int j,k;
+    normalizujKolory();
+    //sort(tab_kolorow.begin(), tab_kolorow.end());
+    
+    std::cout<<"";
+    
     for(int i=0;i<graf->getRozmiar();i++){
         k = j = 0;
         while(j<i){
@@ -95,8 +133,13 @@ void Osobnik::napraw(){
                 }
             j++;
         }
+        k=k;
+        if(k > 20)
+            std::cout<<"";
     }
+//    sort(tab_kolorow.begin(), tab_kolorow.end());
     policz_kolory();
+    std::cout<<"";
 }
 
 void Osobnik::mutacja(){
@@ -157,6 +200,9 @@ void Osobnik::mutacja2(){
     }
 }
 
+
+
+
 int Osobnik::bledneKrawedzie(){
     int k=0;
     for(int i=0;i<graf->getRozmiar();i++)
@@ -192,5 +238,17 @@ void Osobnik::randomowaMutacja3(){
         punkt1=rand()%wierzcholki;
         punkt2=rand()%wierzcholki;
         std::swap(tab_kolorow[punkt1], tab_kolorow[punkt2]);
+    }
+}
+
+void Osobnik::randomowaMutacja4(){
+    for(int i=0;i<wierzcholki;i++){
+        tab_kolorow[i]=tab_kolorow[i]%(kolory * 2 / 3);
+    }
+}
+
+void Osobnik::randomowaMutacja5(){
+    for(int i=0;i<wierzcholki;i++){
+        tab_kolorow[i] = rand()%(kolory-1);
     }
 }

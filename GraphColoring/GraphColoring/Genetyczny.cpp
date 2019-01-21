@@ -17,15 +17,15 @@ Genetyczny::Genetyczny(int wP,int lP,int lOK,int lOM){
 
 void Genetyczny::operator() (Graph* graf){
     bool saNowe = false;
-    int poczatek;
+    int poczatek=0;
     pop = new Populacja(wielkoscPopulacji,graf);
     int licznik = 0;
     int tmpMin = pop->getOsobnikiPopulacji()[0].getWierzcholki();
 //    pop->printPopulacje();
     for(int i=0;i<liczbaPokolen;i++){
-        if (saNowe)
-            poczatek = wielkoscPopulacji;
-        else poczatek = 0;
+        //if (saNowe)
+        //    poczatek = wielkoscPopulacji;
+        //else poczatek = 0;
         for(int j=0;j<liczbaOperacjiKrzyzowania;j++){
             //pop->rodzice1(poczatek);
             pop->rodzice1a();
@@ -40,19 +40,20 @@ void Genetyczny::operator() (Graph* graf){
         
         if(tmpMin == pop->bestKolor()){
             licznik++;
-        }else{
+        }else if(tmpMin > pop->bestKolor()){
             licznik = 0;
             tmpMin = pop->bestKolor();
         }
         if(licznik > 10){
-//            licznik=0;
+            licznik=0;
             pop->mutujj();
             saNowe = true;
         }
         else saNowe = false;
         
-        std::cout << i << ": ";
-        pop->printMax();
+        std::cout << i << ": "<<tmpMin<<"\n";
+        
+        
 //        std::cout << pop->getOsobnikiPopulacji()[0].bledneKrawedzie() <<"\n";
     }
     delete pop;
